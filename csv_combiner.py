@@ -1,13 +1,15 @@
 from pathlib import Path
 import argparse
+#import pytest
 
 
 def process(line, filename):
     """
+    This function takes a single line and process it to remove any white spaces and returns a string value
 
-    :param line:
-    :param filename:
-    :return:
+    :param line: A single row/line from the file
+    :param filename: This argument contains the name of the file
+    :return: a list string
     """
     columns = line.split(",")
     columns = [column.strip() for column in columns]
@@ -17,9 +19,12 @@ def process(line, filename):
 
 def get_headers(filepath):
     """
-    :param filepath:
-    :return:
+    This function is used to get the header records from each file
+
+    :param filepath: The filepath input by the user
+    :return: The header record for each file
     """
+
     try:
         with open(filepath) as f:
             return process(f.readline(), "filename")
@@ -30,14 +35,14 @@ def get_headers(filepath):
 
 def scan_files(filepaths):
     """
-    :param filepaths:
+    :param filepaths: The filepaths input by the user
     :return: None
     """
     headers = get_headers(filepaths[0])
-    print(headers)
     for filepath in filepaths:
         p = Path(filepath)
         filename = p.name
+
         try:
             with open(filepath) as f:
                 f.readline()
