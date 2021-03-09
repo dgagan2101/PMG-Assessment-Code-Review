@@ -14,4 +14,4 @@ Description :
 
 csv_combiner.py file takes in multiple csv files as input from command line and joins all the csv files together to print their output in stdout
 
-test_csv_combiner.py file contains Unite test cases written to test the functions written in csv_combiner.py
+test_csv_combiner.py file contains Unit test cases written to test the functions written in csv_combiner.py
